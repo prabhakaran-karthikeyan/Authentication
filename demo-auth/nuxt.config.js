@@ -29,6 +29,9 @@ export default {
   css: [
   ],
 
+  router: {
+    middleware: 'routing'
+  },
   /*
   ** Plugins to load before mounting the App
   */

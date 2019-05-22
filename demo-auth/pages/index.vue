@@ -26,9 +26,7 @@
           <div style="clear: both;"></div>
         </div>
   </div>
-  <div class="welcome" v-if="logged_in == true">
-      <h2>welcome Prabhu</h2>
-  </div>
+ 
 </section>
 </template>
 <script>
@@ -36,6 +34,7 @@
   import {firebase} from '~/plugins/firebase.js'
   require('firebase/auth')
   export default {
+    middleware: 'routing',
     data() {
       return {
         email : '',
@@ -54,9 +53,12 @@
           console.log(user);
           self.logged_in = true;
           alert("success! you are logged in")
+          self.$router.push("/welcome");
+         
         },
         function(err) {
           alert("failure reason=" + err.message)
+
         }
         );
       }
